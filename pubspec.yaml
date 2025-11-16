@@ -1,0 +1,24 @@
+name: skeletonizer_plus
+description: A production-quality Flutter package for automatic skeleton loading states with shimmer animations, theme support, and performance optimizations.
+version: 1.0.0
+homepage: https://github.com/yourusername/skeletonizer_plus
+repository: https://github.com/yourusername/skeletonizer_plus
+documentation: https://github.com/yourusername/skeletonizer_plus
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+  flutter: '>=3.3.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.1
+
+flutter:
+  plugin:
+    platforms:
+
