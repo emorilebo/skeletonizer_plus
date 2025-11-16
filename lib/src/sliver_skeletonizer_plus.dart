@@ -20,7 +20,8 @@ class SliverSkeletonizerPlus extends StatelessWidget {
     this.optimizeForPerformance = false,
     this.theme,
     super.key,
-  });
+  }) : bones = null,
+       animationConfig = null;
 
   /// Creates a SliverSkeletonizerPlus with custom bone layout.
   const SliverSkeletonizerPlus.custom({
@@ -119,7 +120,6 @@ class SliverSkeletonizerPlus extends StatelessWidget {
       return animationConfig!;
     }
 
-    final theme = this.theme ?? Theme.of(context);
     return AnimationConfig(
       speed: speed ?? const Duration(milliseconds: 1200),
       baseColor: baseColor,

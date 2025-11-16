@@ -20,7 +20,8 @@ class SkeletonizerPlus extends StatefulWidget {
     this.optimizeForPerformance = false,
     this.theme,
     super.key,
-  });
+  }) : bones = null,
+       animationConfig = null;
 
   /// Creates a SkeletonizerPlus with custom bone layout.
   const SkeletonizerPlus.custom({
@@ -76,7 +77,6 @@ class SkeletonizerPlus extends StatefulWidget {
 
 class _SkeletonizerPlusState extends State<SkeletonizerPlus> {
   List<Bone>? _generatedBones;
-  final GlobalKey _childKey = GlobalKey();
 
   @override
   void initState() {
@@ -105,7 +105,6 @@ class _SkeletonizerPlusState extends State<SkeletonizerPlus> {
       return widget.animationConfig!;
     }
 
-    final theme = widget.theme ?? Theme.of(context);
     return AnimationConfig(
       speed: widget.speed ?? const Duration(milliseconds: 1200),
       baseColor: widget.baseColor,
