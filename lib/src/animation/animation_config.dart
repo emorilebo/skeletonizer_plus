@@ -15,6 +15,15 @@ enum ShimmerDirection {
   bottomUp,
 }
 
+/// Type of animation.
+enum AnimationType {
+  /// Shimmer effect.
+  shimmer,
+
+  /// Pulse (fade in/out) effect.
+  pulse,
+}
+
 /// Configuration for skeleton shimmer animation.
 class AnimationConfig {
   const AnimationConfig({
@@ -22,6 +31,7 @@ class AnimationConfig {
     this.baseColor,
     this.highlightColor,
     this.direction = ShimmerDirection.ltr,
+    this.type = AnimationType.shimmer,
     this.loop = true,
     this.loopCount,
   }) : assert(
@@ -41,6 +51,9 @@ class AnimationConfig {
   /// Direction of the shimmer animation.
   final ShimmerDirection direction;
 
+  /// Type of animation (shimmer or pulse).
+  final AnimationType type;
+
   /// Whether to loop infinitely.
   final bool loop;
 
@@ -53,6 +66,7 @@ class AnimationConfig {
     Color? baseColor,
     Color? highlightColor,
     ShimmerDirection? direction,
+    AnimationType? type,
     bool? loop,
     int? loopCount,
   }) {
@@ -61,9 +75,11 @@ class AnimationConfig {
       baseColor: baseColor ?? this.baseColor,
       highlightColor: highlightColor ?? this.highlightColor,
       direction: direction ?? this.direction,
+      type: type ?? this.type,
       loop: loop ?? this.loop,
       loopCount: loopCount ?? this.loopCount,
     );
   }
 }
+
 

@@ -248,7 +248,75 @@ Main widget that wraps a child and displays skeleton loading state.
 | `optimizeForPerformance` | `bool`        | `false`     | Enable performance optimizations               |
 | `theme`                | `ThemeData?`    | `null`      | Theme override                                 |
 
+
+### New Features (v1.1.0)
+
+#### Skeleton.ignore
+
+Keep specific widgets fully visible and interactive within a skeletonized area.
+
+```dart
+SkeletonizerPlus(
+  enabled: isLoading,
+  child: Card(
+    child: Column(
+      children: [
+        Text('Loading...'),
+        SkeletonIgnore(
+          child: ElevatedButton(
+            onPressed: () {},
+            child: Text('I am visible!'),
+          ),
+        ),
+      ],
+    ),
+  ),
+)
+```
+
+#### Skeleton.unite
+
+Group multiple widgets into a single skeleton bone.
+
+```dart
+SkeletonUnite(
+  child: Row(
+    children: [
+      Icon(Icons.star),
+      Icon(Icons.star),
+      Icon(Icons.star),
+    ],
+  ),
+)
+```
+
+#### Pulse Animation
+
+Switch between shimmer and pulse animations.
+
+```dart
+SkeletonizerPlus.withConfig(
+  enabled: isLoading,
+  animationConfig: AnimationConfig(
+    type: AnimationType.pulse, // or AnimationType.shimmer
+  ),
+  child: YourWidget(),
+)
+```
+
+#### Text Styling Support
+
+`BoneText` now supports `fontSize` and `style` for more accurate skeleton sizing.
+
+```dart
+BoneText(
+  fontSize: 24.0,
+  style: TextStyle(fontWeight: FontWeight.bold),
+)
+```
+
 ### Bone Types
+
 
 #### BoneText
 

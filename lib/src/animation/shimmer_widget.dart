@@ -69,6 +69,19 @@ class _ShimmerWidgetState extends State<ShimmerWidget>
 
   @override
   Widget build(BuildContext context) {
+    if (widget.config.type == AnimationType.pulse) {
+      return AnimatedBuilder(
+        animation: _animation,
+        builder: (context, child) {
+          return Opacity(
+            opacity: 0.5 + (_animation.value * 0.5), // Fade between 0.5 and 1.0
+            child: child,
+          );
+        },
+        child: widget.child,
+      );
+    }
+
     return CustomPaint(
       painter: ShimmerPainter(
         animation: _animation,
@@ -79,4 +92,5 @@ class _ShimmerWidgetState extends State<ShimmerWidget>
     );
   }
 }
+
 

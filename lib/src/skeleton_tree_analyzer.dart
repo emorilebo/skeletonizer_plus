@@ -4,6 +4,8 @@ import 'bones/bone_text.dart';
 import 'bones/bone_circle.dart';
 import 'bones/bone_rect.dart';
 import 'bones/bone_icon.dart';
+import 'widgets/skeleton_ignore.dart';
+import 'widgets/skeleton_unite.dart';
 
 /// Analyzes a widget tree and generates skeleton bones.
 class SkeletonTreeAnalyzer {
@@ -19,10 +21,25 @@ class SkeletonTreeAnalyzer {
       final text = widget.data ?? '';
       final words = text.split(' ').length;
       final lines = text.split('\n').length;
+      final style = widget.style;
       bones.add(BoneText(
         words: words > 0 ? words : 1,
         lines: lines > 0 ? lines : 1,
+        fontSize: style?.fontSize,
+        style: style,
       ),);
+    } else if (widget is SkeletonIgnore) {
+      bones.add(BoneWidget(child: widget.child));
+    } else if (widget is SkeletonUnite) {
+       bones.add(BoneRect(
+        radius: widget.borderRadius is BorderRadius 
+            ? (widget.borderRadius as BorderRadius).topLeft.x 
+            : 8.0,
+        // Unite implies we treat the whole subtree as one block. 
+        // Ideally we would measure it, but here we might rely on the BoneRect 
+        // taking the size of the container or being flexible.
+        // For now, let's treat it as a generic block.
+      ));
     } else if (widget is Icon) {
       bones.add(const BoneIcon(size: 24.0));
     } else if (widget is Image) {

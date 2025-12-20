@@ -25,3 +25,25 @@ abstract class Bone {
   Widget build(BuildContext context, Size size);
 }
 
+
+
+/// A bone that renders an actual widget.
+/// Used for SkeletonIgnore to keep the original widget visible in the skeleton stack.
+class BoneWidget extends Bone {
+  const BoneWidget({
+    required this.child,
+    super.width,
+    super.height,
+  });
+
+  final Widget child;
+
+  @override
+  Widget build(BuildContext context, Size size) {
+    return SizedBox(
+      width: width ?? size.width,
+      height: height ?? size.height,
+      child: child,
+    );
+  }
+}

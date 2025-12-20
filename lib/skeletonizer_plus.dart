@@ -11,3 +11,6 @@ export 'src/bones/bone_rect.dart';
 export 'src/bones/bone_icon.dart';
 export 'src/animation/animation_config.dart';
 
+export 'src/widgets/skeleton_ignore.dart';
+export 'src/widgets/skeleton_unite.dart';
+

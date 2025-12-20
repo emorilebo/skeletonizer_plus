@@ -240,6 +240,11 @@ class _BoneWidget extends StatelessWidget {
           bone.width ?? constraints.maxWidth,
           bone.height ?? 20.0,
         );
+
+        if (bone is BoneWidget) {
+          return bone.build(context, size);
+        }
+
         return ColorFiltered(
           colorFilter: ColorFilter.mode(
             baseColor,

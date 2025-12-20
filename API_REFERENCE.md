@@ -523,3 +523,4 @@ All classes and methods work across all Flutter-supported platforms:
 
 This API reference is based on version 1.0.0 of Skeletonizer Plus. For the latest documentation, please refer to the [GitHub repository](https://github.com/emorilebo/skeletonizer_plus).
 
+

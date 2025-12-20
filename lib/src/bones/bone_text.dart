@@ -12,6 +12,8 @@ class BoneText extends Bone {
     super.width,
     super.height,
     super.radius,
+    this.fontSize,
+    this.style,
   });
 
   /// Number of words per line.
@@ -28,6 +30,12 @@ class BoneText extends Bone {
 
   /// Number of lines.
   final int lines;
+
+  /// Optional font size to override lineHeight inference.
+  final double? fontSize;
+
+  /// Optional text style.
+  final TextStyle? style;
 
   @override
   Widget build(BuildContext context, Size size) {

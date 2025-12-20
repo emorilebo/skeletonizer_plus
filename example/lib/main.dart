@@ -75,6 +75,7 @@ class _HomePageState extends State<HomePage> {
           CustomBonesExample(),
           ListViewExample(),
           SliverExample(),
+          NewFeaturesExample(),
         ],
       ),
       bottomNavigationBar: NavigationBar(
@@ -100,6 +101,10 @@ class _HomePageState extends State<HomePage> {
           NavigationDestination(
             icon: Icon(Icons.view_carousel),
             label: 'Sliver',
+          ),
+          NavigationDestination(
+            icon: Icon(Icons.new_releases),
+            label: 'New Features',
           ),
         ],
       ),
@@ -321,3 +326,99 @@ class _SliverExampleState extends State<SliverExample> {
   }
 }
 
+class NewFeaturesExample extends StatelessWidget {
+  const NewFeaturesExample({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return SingleChildScrollView(
+      padding: const EdgeInsets.all(16.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const Text(
+            'New Features',
+            style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+          ),
+          const SizedBox(height: 16),
+          const Text('SkeletonIgnore', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+          const SizedBox(height: 8),
+          SkeletonizerPlus(
+            enabled: true,
+            child: Card(
+              child: Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Row(
+                  children: [
+                    const Icon(Icons.person, size: 40),
+                    const SizedBox(width: 16),
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          const Text('Skeletonized Text'),
+                          const SizedBox(height: 8),
+                          SkeletonIgnore(
+                            child: ElevatedButton(
+                              onPressed: () {},
+                              child: const Text('I am Ignored!'),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+          const SizedBox(height: 24),
+          const Text('SkeletonUnite', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+          const SizedBox(height: 8),
+          SkeletonizerPlus(
+            enabled: true,
+            child: Card(
+              child: Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Text('Below items are united into one bone:'),
+                    const SizedBox(height: 8),
+                    SkeletonUnite(
+                      child: Row(
+                        children: const [
+                          Icon(Icons.star),
+                          SizedBox(width: 8),
+                          Icon(Icons.star),
+                          SizedBox(width: 8),
+                          Icon(Icons.star),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+          const SizedBox(height: 24),
+          const Text('Pulse Animation', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+          const SizedBox(height: 8),
+          SkeletonizerPlus.withConfig(
+            enabled: true,
+            animationConfig: const AnimationConfig(
+              type: AnimationType.pulse,
+            ),
+            child: Card(
+              child: ListTile(
+                leading: const Icon(Icons.favorite),
+                title: const Text('Pulsing Skeleton'),
+                subtitle: const Text('This uses opacity fade instead of shimmer.'),
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
