@@ -1,3 +1,8 @@
+## 1.1.1
+
+- Documentation improvements: Added visual showcase of features.
+- Minor maintenance updates.
+
 ## 1.1.0
 
 - Added `SkeletonIgnore` to keep widgets visible and interactive.

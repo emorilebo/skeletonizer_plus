@@ -6,6 +6,8 @@
 
 > **Production-quality skeleton loading states with automatic generation, shimmer animations, and performance optimizations**
 
+![Skeletonizer Plus Showcase](doc/assets/showcase.png)
+
 Transform your app's loading experience with intelligent skeleton screens that automatically adapt to your widgets. `skeletonizer_plus` provides a comprehensive solution for creating beautiful, performant loading states that match your UI perfectly.
 
 ## ✨ What Makes This Package Special?
